@@ -332,7 +332,7 @@ function Security() {
       code: "PROTO-04",
       title: "Perakitan Akhir oleh Negara",
       desc: "Seluruh komponen dari berbagai sel dikirim ke fasilitas perakitan yang dikendalikan langsung oleh pemerintah pusat. Hanya di titik ini semua bagian bertemu.",
-      detail: "Kendali akhir -- integrasi, kalibrasi, dan pengesahan -- sepenuhnya ada di tangan institusi negara. Rakyat memproduksi, negara merakit."
+      detail: "Kendali akhir integrasi, kalibrasi, dan pengesahan sepenuhnya ada di tangan institusi negara. Rakyat memproduksi, negara merakit."
     }
   ];
 
@@ -356,7 +356,7 @@ function Security() {
           <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase text-white">Protokol Keamanan</h2>
           <p className="text-paper/70 text-lg">
             Keamanan jaringan dirancang dengan prinsip kompartementalisasi militer.
-            Setiap UMKM adalah sel independen yang tidak mengetahui gambaran besar -- memastikan integritas jaringan bahkan dalam skenario terburuk.
+            Setiap UMKM adalah sel independen yang tidak mengetahui gambaran besar untuk memastikan integritas jaringan bahkan dalam skenario terburuk.
           </p>
         </div>
 
