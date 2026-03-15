@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Shield, Cpu, Wrench, Rocket, Target, Zap, Users, ArrowRight, Github } from 'lucide-react';
+import { Shield, Cpu, Wrench, Rocket, Target, Zap, Users, ArrowRight, Github, Lock, EyeOff, GitBranch, Landmark } from 'lucide-react';
 
 function Navbar() {
   return (
@@ -304,6 +304,133 @@ function Sectors() {
   );
 }
 
+function Security() {
+  const protocols = [
+    {
+      icon: <EyeOff className="w-7 h-7" />,
+      code: "PROTO-01",
+      title: "Isolasi Sel",
+      desc: "Setiap UMKM beroperasi secara independen dan rahasia. Tidak ada satu pun unit produksi yang mengetahui identitas, lokasi, atau keberadaan unit produksi lain dalam jaringan.",
+      detail: "Prinsip need-to-know basis militer diterapkan penuh. Jika satu sel terkompromi, seluruh jaringan tetap aman."
+    },
+    {
+      icon: <GitBranch className="w-7 h-7" />,
+      code: "PROTO-02",
+      title: "Blueprint Terfragmentasi",
+      desc: "Setiap UMKM hanya menerima blueprint untuk satu modul spesifik sesuai spesialisasinya. Tidak ada unit yang memiliki akses ke rancangan sistem secara utuh.",
+      detail: "Bengkel A hanya tahu cara membuat sirip kendali. Bengkel B hanya tahu cara membuat casing motor. Tak ada yang bisa merekonstruksi produk akhir."
+    },
+    {
+      icon: <Lock className="w-7 h-7" />,
+      code: "PROTO-03",
+      title: "Komunikasi Satu Arah",
+      desc: "Instruksi dan blueprint didistribusikan dari pusat ke sel produksi melalui kanal terenkripsi. Tidak ada komunikasi lateral antar-sel.",
+      detail: "Setiap perintah produksi dikirim langsung dari komando pusat. Antar-UMKM tidak memiliki saluran komunikasi satu sama lain."
+    },
+    {
+      icon: <Landmark className="w-7 h-7" />,
+      code: "PROTO-04",
+      title: "Perakitan Akhir oleh Negara",
+      desc: "Seluruh komponen dari berbagai sel dikirim ke fasilitas perakitan yang dikendalikan langsung oleh pemerintah pusat. Hanya di titik ini semua bagian bertemu.",
+      detail: "Kendali akhir -- integrasi, kalibrasi, dan pengesahan -- sepenuhnya ada di tangan institusi negara. Rakyat memproduksi, negara merakit."
+    }
+  ];
+
+  return (
+    <section id="keamanan" className="py-24 relative overflow-hidden border-t border-white/5">
+      {/* Decorative scanning line */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div
+          animate={{ y: ["-100%", "100%"] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          className="absolute left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-500/40 to-transparent"
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 border border-red-500/50 bg-red-500/10 text-red-400 text-xs font-mono mb-6">
+            <Lock className="w-4 h-4" />
+            <span>CLASSIFIED PROTOCOL</span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 uppercase text-white">Protokol Keamanan</h2>
+          <p className="text-paper/70 text-lg">
+            Keamanan jaringan dirancang dengan prinsip kompartementalisasi militer.
+            Setiap UMKM adalah sel independen yang tidak mengetahui gambaran besar -- memastikan integritas jaringan bahkan dalam skenario terburuk.
+          </p>
+        </div>
+
+        {/* Protocol diagram */}
+        <div className="relative mb-16">
+          {/* Vertical connecting line */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-red-500/50 via-red-500/20 to-transparent hidden md:block" />
+
+          <div className="space-y-8">
+            {protocols.map((proto, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15 }}
+                className={`relative md:w-[calc(50%-2rem)] ${
+                  i % 2 === 0 ? "md:mr-auto" : "md:ml-auto"
+                }`}
+              >
+                {/* Connector dot */}
+                <div className={`hidden md:block absolute top-8 w-4 h-4 rounded-full border-2 border-red-500 bg-military-900 z-10 ${
+                  i % 2 === 0 ? "-right-[2.5rem]" : "-left-[2.5rem]"
+                }`}>
+                  <div className="absolute inset-1 rounded-full bg-red-500 animate-pulse" />
+                </div>
+
+                <div className="bg-military-800 border border-white/10 p-8 relative group hover:border-red-500/30 transition-colors">
+                  {/* Corner accents */}
+                  <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-red-500/50" />
+                  <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-red-500/50" />
+                  <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-red-500/50" />
+                  <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-red-500/50" />
+
+                  <div className="flex items-start gap-5">
+                    <div className="flex-shrink-0 w-14 h-14 bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400">
+                      {proto.icon}
+                    </div>
+                    <div className="flex-1">
+                      <div className="text-[10px] font-mono text-red-400/70 mb-1">{proto.code}</div>
+                      <h3 className="text-xl font-bold mb-3 uppercase text-white">{proto.title}</h3>
+                      <p className="text-paper/70 leading-relaxed mb-3">{proto.desc}</p>
+                      <div className="text-sm text-paper/50 border-l-2 border-red-500/30 pl-4 italic">
+                        {proto.detail}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom summary */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto text-center bg-military-800/50 border border-red-500/20 p-8"
+        >
+          <div className="text-xs font-mono text-red-400 mb-4">// RINGKASAN DOKTRIN</div>
+          <p className="text-paper/80 leading-relaxed">
+            Rakyat memproduksi komponen. Rakyat tidak tahu produk akhir.
+            Rakyat tidak saling mengenal. Negara merakit. Negara mengendalikan.
+            <span className="block mt-2 text-red-400 font-bold uppercase text-sm tracking-wider">
+              Desentralisasi produksi, sentralisasi kendali.
+            </span>
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Stories() {
   return (
     <section id="kisah" className="py-24 bg-military-800 border-t border-white/5">
@@ -413,6 +540,7 @@ export default function App() {
       <Hero />
       <Concept />
       <Sectors />
+      <Security />
       <Stories />
       <CTA />
       <Footer />
