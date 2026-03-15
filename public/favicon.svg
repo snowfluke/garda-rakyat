@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g transform="translate(50, 50) skewX(-12) translate(-50, -50)">
+    <rect x="10" y="10" width="80" height="80" rx="8" fill="#ff5722" />
+  </g>
+  <path d="M50 78s20-10 20-25V28L50 20.5 30 28v25c0 15 20 25 20 25z" 
+        fill="none" 
+        stroke="#0f1110" 
+        stroke-width="6" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"/>
+</svg>
