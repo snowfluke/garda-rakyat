@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Shield, Cpu, Wrench, Rocket, Target, Zap, Users, ArrowRight } from 'lucide-react';
+import { Shield, Cpu, Wrench, Rocket, Target, Zap, Users, ArrowRight, Github } from 'lucide-react';
 
 function Navbar() {
   return (
@@ -16,9 +16,14 @@ function Navbar() {
           <a href="#sektor" className="hover:text-accent-orange transition-colors">SEKTOR</a>
           <a href="#kisah" className="hover:text-accent-orange transition-colors">KISAH RAKYAT</a>
         </div>
-        <button className="bg-paper text-military-900 px-6 py-2.5 font-bold text-sm stencil-text hover:bg-accent-orange hover:text-white transition-colors transform -skew-x-12">
-          <span className="block transform skew-x-12">GABUNG JARINGAN</span>
-        </button>
+        <div className="flex items-center gap-4">
+          <a href="https://github.com/snowfluke/garda-rakyat" target="_blank" rel="noopener noreferrer" className="text-paper/70 hover:text-accent-orange transition-colors" aria-label="GitHub Repository">
+            <Github className="w-5 h-5" />
+          </a>
+          <button className="bg-paper text-military-900 px-6 py-2.5 font-bold text-sm stencil-text hover:bg-accent-orange hover:text-white transition-colors transform -skew-x-12">
+            <span className="block transform skew-x-12">GABUNG JARINGAN</span>
+          </button>
+        </div>
       </div>
     </nav>
   );
